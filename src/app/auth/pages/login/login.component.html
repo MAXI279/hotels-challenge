@@ -2,6 +2,22 @@
   <mat-card-title>Login</mat-card-title>
   <mat-card-content>
     <form (ngSubmit)="sendLogin()" [formGroup]="formLogin">
+
+      <p>
+        <mat-form-field *ngIf="airlines">
+          <mat-label>Airline</mat-label>
+          <mat-select formControlName="airline">
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let airline of airlines" [value]="airline.code">
+              {{airline.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </p>
+      <p *ngIf="!airlines" class="info">
+        Cargando...
+      </p>
+
       <p>
         <mat-form-field>
           <input type="text" matInput placeholder="Username" formControlName="username">
