@@ -1,0 +1,52 @@
+<app-header></app-header>
+<main class="hotels-main">
+  <div class="hotels-row hotels">
+    <div class="hotels-row-column">
+      <mat-card>
+      <h2>Hotels</h2>
+      <form (ngSubmit)="searchHotels()" [formGroup]="formHotels">
+        <p>
+          <mat-form-field>
+            <input type="text" matInput placeholder="Where are you going?" formControlName="destination">
+          </mat-form-field>
+        </p>
+
+        <p>
+          <mat-label>Travellers</mat-label>
+            <mat-slider min="0" max="5" step="1" value="1" formControlName="travellers">
+            </mat-slider>
+        </p>
+
+        <p>
+          <!-- [min]="minFecha" -->
+          <!-- [(ngModel)]="desdeFecha" -->
+          <!-- (ngModelChange)="elijoFecha()" -->
+          <mat-form-field>
+            <mat-label>Enter a date range for your trip</mat-label>
+            <mat-date-range-input [min]="minDate" [rangePicker]="picker">
+              <input matStartDate placeholder="Check-in" formControlName="start">
+              <input matEndDate placeholder="Check-out" formControlName="end">
+            </mat-date-range-input>
+            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-date-range-picker #picker></mat-date-range-picker>
+          </mat-form-field>
+        </p>
+        <p *ngIf="error" class="error">
+          {{ error }}
+        </p>
+
+        <div class="button">
+          <button type="submit" color="primary" mat-flat-button>Search</button>
+        </div>
+
+      </form>
+      </mat-card>
+    </div>
+    <div class="hotels-row-column">
+      <h2>Results</h2>
+      <p> You haven't searched yet! </p>
+    </div>
+  </div>
+
+</main>

@@ -1,0 +1,52 @@
+.hotels-main {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  width: 75%;
+  max-width: 1080px;
+  margin: auto;
+}
+
+.hotels-row {
+  display: flex;
+  flex-direction: row;
+  margin: 50px 0;
+  width: 100%;
+}
+
+.hotels-row-column {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+@media (max-width: 850px) {
+  .hotels-row-column {
+      width: 100%;
+  }
+  .hotels {
+    flex-direction: column;
+  }
+}
+
+
+/* FORM */
+mat-card {
+  width: 80%;
+}
+mat-label {
+  color:grey;
+}
+mat-form-field {
+  width: 100%;
+}
+mat-slider {
+  width: 100%;
+}
+.button {
+  margin-top: 30px;
+}
+button {
+  width: 100%;
+}
