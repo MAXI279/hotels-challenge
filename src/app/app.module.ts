@@ -4,15 +4,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MaterialModule } from './shared/modules/material/material.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
