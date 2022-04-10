@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  url: 'https://beta.id90travel.com/'
+  url: 'https://beta.id90travel.com/',
+  api_url: 'https://beta.id90travel.com/api/v1/'
 };
 
 /*

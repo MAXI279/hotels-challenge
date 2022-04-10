@@ -50,3 +50,9 @@ mat-slider {
 button {
   width: 100%;
 }
+.error {
+  padding: 16px;
+  width: 90%;
+  color: white;
+  background-color: rgb(219, 134, 134);
+}

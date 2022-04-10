@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { HotelsService } from '../../services/hotels.service';
 
 
 @Component({
@@ -13,7 +14,11 @@ export class HotelsComponent implements OnInit {
   error: string = ''
   formHotels: FormGroup = new FormGroup({});
 
-  constructor() {
+  get travellers(){
+    return this.formHotels.get('travellers')
+  }
+
+  constructor(private hotelsService: HotelsService) {
     this.minDate = new Date();
   }
 
@@ -41,8 +46,15 @@ export class HotelsComponent implements OnInit {
   searchHotels(): void {
     if(this.formHotels.valid){
       console.log(this.formHotels.value)
+      this.hotelsService.searchHotels(this.formHotels.value).subscribe(responseOk => {
+        console.log(responseOk);
+      },
+      err => {
+        this.error = err.error.error
+        console.log(err);
+      })
     }else{
-      console.log('Errores')
+      this.error = 'Campos invalidos, por favor revise los datos ingresados'
     }
   }
 
