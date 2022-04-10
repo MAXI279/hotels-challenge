@@ -1,0 +1,23 @@
+.mat-form-field {
+  width: 100%;
+  min-width: 300px;
+}
+
+.error {
+  padding: 16px;
+  width: 90%;
+  color: white;
+  background-color: rgb(219, 134, 134);
+}
+
+.info {
+  padding: 16px;
+  width: 90%;
+  color: white;
+  background-color: rgb(134, 181, 219);
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+}

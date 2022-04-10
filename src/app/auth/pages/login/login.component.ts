@@ -1,9 +1,10 @@
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { Airline } from '../../interfaces/Airline';
+import { LoginForm } from '../../interfaces/LoginForm';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +14,6 @@ import { Airline } from '../../interfaces/Airline';
 export class LoginComponent implements OnInit {
   error: string = ''
   airlines: Airline[] | undefined
-
-  formLogin: FormGroup = new FormGroup({});
 
   constructor(
     private authService: AuthService,
@@ -30,29 +29,10 @@ export class LoginComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-    this.formLogin = new FormGroup(
-      {
-        airline: new FormControl('', [
-          Validators.required
-        ]),
-        username: new FormControl('', [
-          Validators.required
-        ]),
-        password: new FormControl('',
-          [
-            Validators.required,
-            Validators.minLength(5)
-          ])
-      }
-    )
-  }
+  ngOnInit(): void {}
 
-  sendLogin(): void {
-    if(this.formLogin.valid){
-      const { airline, username, password } = this.formLogin.value
-
-      this.authService.sendCredentials(username, password)
+  sendLogin(event: LoginForm): void {
+      this.authService.sendCredentials(event)
         .subscribe({
           next: responseOk => {
             const { api_id, first_name, last_name } = responseOk.member
@@ -65,11 +45,6 @@ export class LoginComponent implements OnInit {
             console.log(err);
           }
         })
-
-    }else{
-      this.error = 'Campos invalidos, por favor revise los datos ingresados'
-    }
-
   }
 
 }
