@@ -1,5 +1,14 @@
 
-<mat-card *ngIf="hotels && hotels.length < 1"> You haven't searched yet! </mat-card>
-<mat-card *ngFor="let hotel of hotels">
-  {{hotel.name}}
+<mat-card *ngIf="hotels && hotels.length < 1">
+  <p>You haven't searched yet!</p>
+</mat-card>
+<mat-card class="hotel" *ngFor="let hotel of hotels">
+
+  <div class="image-cont">
+    <img class="image" src="http:{{hotel.image}}" alt="">
+  </div>
+  <div class="desc">
+    <h4>{{hotel.name}}</h4>
+    <h5>{{hotel.location_description}}</h5>
+  </div>
 </mat-card>

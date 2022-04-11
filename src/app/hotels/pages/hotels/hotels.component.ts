@@ -9,10 +9,10 @@ import { HotelSearchInterface } from '../../interfaces/HotelSearchInterface';
 const moment = _moment;
 export const MY_FORMATS = {
   parse: {
-    dateInput: 'DD/MM/YYYY',
+    dateInput: 'YYYY/MM/DD',
   },
   display: {
-    dateInput: 'DD/MM/YYYY',
+    dateInput: 'YYYY/MM/DD',
     monthYearLabel: 'MMM YYYY',
     dateA11yLabel: 'LL',
     monthYearA11yLabel: 'MMMM YYYY',
@@ -50,7 +50,7 @@ export class HotelsComponent implements OnInit {
         destination: new FormControl('', [
           Validators.required
         ]),
-        travellers: new FormControl('', [
+        travellers: new FormControl(1, [
           Validators.required,
           Validators.min(1),
           Validators.max(4)

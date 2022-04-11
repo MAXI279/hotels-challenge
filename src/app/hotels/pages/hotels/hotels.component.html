@@ -12,22 +12,19 @@
         </p>
 
         <p>
-          <mat-label>Travellers {{ travellers?.value }} </mat-label>
-          <mat-slider min="0" max="5" step="1" value="1" formControlName="travellers">
+          <mat-label>Travellers <span style="float:right">Selected: {{ travellers?.value }}</span> </mat-label>
+          <mat-slider min="0" max="4" step="1" value="1" formControlName="travellers">
           </mat-slider>
         </p>
 
         <p>
-          <!-- [min]="minFecha" -->
-          <!-- [(ngModel)]="desdeFecha" -->
-          <!-- (ngModelChange)="elijoFecha()" -->
           <mat-form-field>
             <mat-label>Enter a date range for your trip</mat-label>
-            <mat-date-range-input [min]="minDate" [rangePicker]="picker">
-              <input matStartDate placeholder="Check-in" formControlName="start">
-              <input matEndDate placeholder="Check-out" formControlName="end">
+            <mat-date-range-input [min]="minDate" [rangePicker]="picker" >
+              <input matStartDate placeholder="Check-in" formControlName="start" readonly>
+              <input matEndDate placeholder="Check-out" formControlName="end" readonly>
             </mat-date-range-input>
-            <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+            <mat-hint>YYYY/MM/DD – YYYY/MM/DD</mat-hint>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-date-range-picker #picker></mat-date-range-picker>
           </mat-form-field>
