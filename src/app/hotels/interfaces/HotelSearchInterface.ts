@@ -1,8 +1,9 @@
+import { Moment } from "moment";
 
 export interface HotelSearchInterface {
   travellers: number,
   destination: string,
-  start: Date,
-  end: Date,
+  start: Moment,
+  end: Moment,
   page: number
 }

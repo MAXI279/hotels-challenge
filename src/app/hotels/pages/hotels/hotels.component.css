@@ -50,9 +50,23 @@ mat-slider {
 button {
   width: 100%;
 }
+
+@media (max-width: 850px) {
+  mat-card {
+    width: 94%;
+  }
+}
+
 .error {
   padding: 16px;
   width: 90%;
   color: white;
   background-color: rgb(219, 134, 134);
+}
+
+.info {
+  padding: 16px;
+  width: 90%;
+  color: white;
+  background-color: rgb(134, 181, 219);
 }

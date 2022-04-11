@@ -36,16 +36,19 @@
           {{ error }}
         </p>
 
-        <div class="button">
+        <div class="button" *ngIf="!loading">
           <button type="submit" color="primary" mat-flat-button>Search</button>
         </div>
+        <p *ngIf="loading" class="info">
+          Cargando ...
+        </p>
 
       </form>
       </mat-card>
     </div>
     <div class="hotels-row-column">
       <h2>Results</h2>
-      <p> You haven't searched yet! </p>
+      <app-hotel-list [hotels]="hotels"></app-hotel-list>
     </div>
   </div>
 

@@ -1,0 +1,5 @@
+
+<mat-card *ngIf="hotels && hotels.length < 1"> You haven't searched yet! </mat-card>
+<mat-card *ngFor="let hotel of hotels">
+  {{hotel.name}}
+</mat-card>
